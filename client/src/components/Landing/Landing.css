@@ -12,16 +12,18 @@
 
 .landing-page {
   margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../../assets/R.png);
-    background-size:cover; /* Ajustar la imagen al tamaño del contenedor */
-    background-repeat: no-repeat; /* Evitar que se repita */
-    background-position: center center; /* Centrar la imagen */
-  }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/R.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:inherit; /* Esta propiedad hace que el fondo se quede fijo */
+  background-position: center center;
+}
+
   .content {
     text-align: center;
     margin-bottom: 20rem;
@@ -36,19 +38,22 @@
       4px -4px 0 blue,
       -4px 4px 0 blue,
       4px 4px 0 blue;
-      margin-bottom: -3rem;
+      margin-bottom: 4rem;
+      margin-top: -5rem;
   }
   
   .subtitulo {
     font-size: 5rem;
-    margin-bottom: 20px;
+    margin-bottom: -4rem;
     font-family: 'PokemonFont',sans-serif;
+    margin-top: -3rem;
   }
   .pokeball-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: -10rem; /* Ajusta este valor según tus necesidades */
   }
   .pokeball {
     width: 250px;
@@ -59,6 +64,9 @@
     position: relative;
     overflow: hidden;
     animation: scale .8s infinite alternate;
+    cursor: pointer;
+    margin-bottom: 7rem;
+    margin-top: -3rem;
     
   }
 
@@ -94,16 +102,16 @@
     transform: translate(-50%,-50%);
   }
 
-  .text-pokeball{
+  .text-pokeball {
     font-family: 'PokemonFont', sans-serif;
     font-size: 2rem;
     color: rgb(255, 0, 0);
-    text-shadow: 
+    text-shadow:
       -4px -4px 0 white,
       4px -4px 0 white,
       -4px 4px 0 white,
       4px 4px 0 white;
-      margin-bottom: -3rem;
+    margin-top: -1rem; /* Ajusta este valor según tus necesidades */
   }
   
   @keyframes scale {

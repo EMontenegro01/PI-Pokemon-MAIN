@@ -2,6 +2,7 @@ import React from 'react';
 import { store } from './Redux/store';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom';
  // Importar createRoot desde react-dom
 import './index.css';
 import App from './App';
@@ -11,7 +12,9 @@ const root = createRoot(document.getElementById('root')); // Crear un root usand
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

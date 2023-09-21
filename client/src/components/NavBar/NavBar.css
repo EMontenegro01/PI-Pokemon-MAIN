@@ -1,0 +1,58 @@
+/* Navbar Container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Color de fondo */
+    padding: 10px 20px; /* Espaciado interno */
+    color: #fff; /* Color del texto */
+  }
+  
+  /* Botones de la Navbar */
+  .button-home,
+  .button-back {
+    background-color: #007bff; /* Color de fondo de los botones */
+    color: #fff; /* Color del texto de los botones */
+    border: none; /* Eliminar bordes */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    margin-right: 10px; /* Espacio entre los botones */
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  }
+  .button-exit{
+    background-color: #ff0000; /* Color de fondo de los botones */
+    color: #fff; /* Color del texto de los botones */
+    border: none; /* Eliminar bordes */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    margin-right: 10px; /* Espacio entre los botones */
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  }
+  
+  /* Espacio para la Barra de Búsqueda */
+  .search-bar {
+    flex-grow: 1; /* Hacer que la barra de búsqueda ocupe todo el espacio disponible */
+    margin: 0 20px; /* Margen a los lados de la barra de búsqueda */
+  }
+  
+  /* Estilos para la Barra de Búsqueda (debes adaptarlos según tu diseño) */
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Estilos para el botón de búsqueda (debes adaptarlos según tu diseño) */
+  .search-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

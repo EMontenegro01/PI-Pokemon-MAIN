@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 
 import { getAllPokemons } from "../../Redux/actions"; 
 import Cards from "../Cards/Cards";
-
+import './Home.css'
+import Detail from "../Detail/Detail";
 
 
 function Home(){
@@ -22,6 +23,7 @@ function Home(){
             <h2 className="home-title">HOME</h2>
             
             <Cards allPokemons={allPokemons}/>
+            
         </div>
     )
 }

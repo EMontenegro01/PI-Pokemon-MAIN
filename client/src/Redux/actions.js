@@ -1,4 +1,4 @@
-import {SET_ALL_POKEMONS, SET_ALL_TYPES} from "./action-type";
+import {SET_ALL_POKEMONS, SET_ALL_TYPES, GET_NAME_CHARACTERS} from "./action-type";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001";
 export const getAllPokemons = () => {
@@ -32,4 +32,19 @@ export const getAllPokemons = () => {
             console.error("Error al obtener los tipos:", error);
         }
     }
+}
+
+export const getNameCharacters=(name)=>{
+  console.log("El nombre de la searchbar es .... " + name)
+  return async function( dispatch){
+      try{
+          const response = await axios.get("http://localhost:3001/pokemons?name=" + name);
+          return dispatch({
+              type:GET_NAME_CHARACTERS,
+              payload: response.data
+          })
+      }catch(error){
+          console.log(error)
+      }
+  }
 }

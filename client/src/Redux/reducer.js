@@ -1,6 +1,7 @@
-import { SET_ALL_POKEMONS, SET_ALL_TYPES } from "./action-type";
+import { SET_ALL_POKEMONS, SET_ALL_TYPES, GET_NAME_CHARACTERS } from "./action-type";
 const initialState = {
     allPokemons: [],
+    pokemonsByName: [],
     allTypes: []
 }
 
@@ -15,6 +16,11 @@ function rootReducer(state=initialState, action){
             return{
                 ...state,
                 allTypes: action.payload
+            }
+        case GET_NAME_CHARACTERS:
+            return{
+                ...state,
+                allPokemons: action.payload
             }
         default:
             return state;

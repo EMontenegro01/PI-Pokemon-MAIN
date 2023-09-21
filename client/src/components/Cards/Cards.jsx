@@ -1,4 +1,5 @@
 import Card from "../Card/Card";
+import './Cards.css'
 function Cards ({allPokemons}){
 
     const pokemonsList = allPokemons; 
@@ -6,10 +7,7 @@ function Cards ({allPokemons}){
         <div className="card-list">
             {pokemonsList?.map((pokemon)=>(
                 <Card pokemon={pokemon}/>
-            ))}
-               
-            
-               
+            ))}  
         </div>
     )
 }
