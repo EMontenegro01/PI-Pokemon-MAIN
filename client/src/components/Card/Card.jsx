@@ -1,24 +1,31 @@
 import './Card.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-function Card({ pokemon }) {
-  const { id, name,image, types } = pokemon;
+const Card = ({id,name,image,types})=>{
 
+  if (!(typeof types[0]=== "string")){
+      for(let i = 0; i<types.length;i++){
+          types[i]= types[i].name
+      }
+  }
   return (
-    <div className="card-container">
-      <NavLink to={`/detail/${id}`}>
-          <h2>{name.toUpperCase()}</h2>
-      </NavLink>
-     
+      <div className='card-container'>
+          <h2>{name}</h2>
+
+          <NavLink to={`/detail/${id}`}> 
+            <img className='pokemon-img' src={image} alt={name}/>
+          </NavLink>
+         <div>
+              {
+                  types.map(type=>{
+                      return (
+                          <h3>{type}</h3>
+                      )
+                  })
+              }
+         </div>
       
-   
-      <img src={image} alt="" className='pokemon-img' />
-      <div>
-        {types.map((type, index) => (
-          <h3 key={index}>{type.toUpperCase()}</h3>
-        ))}
       </div>
-    </div>
   );
 }
 

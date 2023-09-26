@@ -4,7 +4,7 @@ import Landing from './components/Landing/Landing';
 import Home from './components/Home/Home';
 import { useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import SearchBar from './components/SearchBar/SearchBar';
+
 import Detail from './components/Detail/Detail';
 import {useDispatch, useSelector} from "react-redux";
 import { useEffect } from "react";

@@ -7,17 +7,33 @@ const getPokemonById = async (req, res) => {
   try {
     // Buscar el Pokémon en la base de datos local
     if(isNaN(idPokemon)){
-      const localPokemon = await Pokemon.findOne({
-        where: { id: idPokemon },
+      const localPokemon = await Pokemon.findByPk(idPokemon,{
+        /* where: { id: idPokemon }, */
         include: {
           model: Type,
           attributes: ['name'],
-          through: {attributes: [],},
         }// Incluye el tipo del Pokémon
       });  
+      
       if (localPokemon) {
+        const {id, name, image, hp, attack, defense, speed, height, weight, Types} = localPokemon.dataValues; 
+        const typesArray = Types.map(type=>type.name);
+        const pokemon = {
+          id,
+          name,
+          image,
+          hp,
+          attack,
+          defense,
+          attack,
+          speed,
+          height,
+          weight,
+          types: typesArray
+        }
+        
         // Si se encuentra en la base de datos local, devuelve los detalles locales
-        return res.status(200).json(localPokemon);
+        return res.status(200).json(pokemon);
       }
     }
   else{

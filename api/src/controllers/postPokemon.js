@@ -4,7 +4,7 @@ const postPokemon = async (req, res) => {
   try {
     // Obtiene los datos del cuerpo de la solicitud
     const { name, image, hp, attack, defense, speed, height, weight, types } = req.body;
-    /* console.log(name); */
+
     // Crea el nuevo Pokémon en la base de datos
     const newPokemon = await Pokemon.create({
       name,
@@ -16,18 +16,23 @@ const postPokemon = async (req, res) => {
       height,
       weight,
     });
-    
-    const typesPromisesArr = types.map(async(type)=>{
+
+    const typesWithOriginDB = types.map(async (type) => {
       const [foundType] = await Type.findOrCreate({
-        where:{name: type},
-        default:{name: type}
-      })
+        where: { name: type },
+        defaults: { name: type},
+      });
       return foundType;
     });
-    const foundTypes = await Promise.all(typesPromisesArr)
-  
-    // Relaciona el nuevo Pokémon con los tipos indicados
-    await newPokemon.addTypes(foundTypes);
+
+ 
+    const createdTypes = await Promise.all(typesWithOriginDB);
+
+    // Relaciona el nuevo Pokémon con los tipos creados
+    await newPokemon.addTypes(createdTypes);
+
+    // Formatea la propiedad 'types' como un arreglo de strings
+    newPokemon.types = types;
 
     return res.status(201).json(newPokemon);
   } catch (error) {
@@ -37,3 +42,4 @@ const postPokemon = async (req, res) => {
 };
 
 module.exports = postPokemon;
+

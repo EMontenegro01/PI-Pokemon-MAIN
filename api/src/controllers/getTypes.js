@@ -13,7 +13,7 @@ const getTypes = async(req, res)=>{
             const apiTypes = apiResponse.data.results;
 
             // Guarda los tipos de la API en la base de datos
-            await Type.bulkCreate(apiTypes.map((type) => ({ name: type.name })));
+            await Type.bulkCreate(apiTypes.map((type) => ({ name: type.name})));
 
             // Vuelve a consultar los tipos de la base de datos
             const updatedDbTypes = await Type.findAll();

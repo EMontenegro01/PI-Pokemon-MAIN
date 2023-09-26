@@ -5,7 +5,14 @@ const getPokemonByName = async (req, res) => {
     const { name } = req.query;
     const pokemonsAPI = await allPokemonsAPI();
     const pokemonsDB = await allPokemonsDB();
-    const allPokemons = [...pokemonsAPI, ...pokemonsDB];
+
+    // Configurar la propiedad createdInDb en false para los Pokémon de la API
+    const pokemonsAPIWithDbProp = pokemonsAPI.map(pokemon => ({
+        ...pokemon,
+        createdInDb: false,
+    }));
+
+    const allPokemons = [...pokemonsAPIWithDbProp, ...pokemonsDB];
     
     try {
         if (name !== undefined) {
@@ -18,5 +25,6 @@ const getPokemonByName = async (req, res) => {
         res.status(404).send(error.message);
     }
 }
+
 
 module.exports = getPokemonByName;

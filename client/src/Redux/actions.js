@@ -1,15 +1,16 @@
-import {SET_ALL_POKEMONS, SET_ALL_TYPES, GET_NAME_CHARACTERS} from "./action-type";
+import {GET_ALL_POKEMONS, GET_TYPES, GET_NAME_CHARACTERS, SET_FILTER_BY_ORIGIN, SET_FILTER_BY_TYPE, RESET_FILTER, SET_TYPES, ORDER_ATTACK, ORDER_BY_NAME} from "./action-type";
 import axios from "axios";
 const BASE_URL = "http://localhost:3001";
+
 export const getAllPokemons = () => {
     return async (dispatch) => {
       try {
-        // Realizar una solicitud GET al endpoint de pokemones en tu servidor local
+        // Realizar una solicitud GET al endpoint de pokemones
         const response = await axios.get("http://localhost:3001/pokemons");
   
         // Despachar la acción para almacenar los datos en el estado de Redux
         dispatch({
-          type: SET_ALL_POKEMONS,
+          type: GET_ALL_POKEMONS,
           payload: response.data, // Suponiendo que response.data contiene los pokemones
         });
       } catch (error) {
@@ -25,13 +26,29 @@ export const getAllPokemons = () => {
             const response = await axios.get(`${BASE_URL}/types`);
 
             dispatch({
-                type: SET_ALL_TYPES,
+                type: GET_TYPES,
                 payload:response.data
             });
         } catch(error){
             console.error("Error al obtener los tipos:", error);
         }
     }
+}
+
+export const setTypes=()=>{
+  return async (dispatch)=>{
+    try {
+      axios.post('http://localhost:3001/types').then((types)=>{
+        dispatch({
+          type: SET_TYPES,
+          payload: types.data,
+        })
+      })
+    } catch (error) {
+      console.error(error)
+    }
+ 
+  }
 }
 
 export const getNameCharacters=(name)=>{
@@ -47,4 +64,51 @@ export const getNameCharacters=(name)=>{
           console.log(error)
       }
   }
+}
+export const setFilterByOrigin = (payload)=>{
+  return{
+    type: SET_FILTER_BY_ORIGIN,
+    payload,
+  };
+};
+
+export const setFilterByType = (types)=>{
+  return{
+    type: SET_FILTER_BY_TYPE,
+    payload: types
+  }
+}
+
+export const resetFilter = ()=>{
+  return{
+    type: RESET_FILTER,
+    payload: [],
+  }
+}
+
+export const orderByAttack = (payload)=>{
+  return{
+    type: ORDER_ATTACK,
+    payload,
+  }
+}
+
+export const orderByName = (payload)=>{
+  return{
+    type: ORDER_BY_NAME,
+    payload,
+  }
+}
+
+export function postPokemon(payload) {
+  return async function () {
+    try {
+      await axios.post('http://localhost:3001/pokemons', {
+        ...payload,
+      });
+      alert('Succefully created');
+    } catch (error) {
+      alert('Already exist or some trouble during creation! Come back later');
+    }
+  };
 }

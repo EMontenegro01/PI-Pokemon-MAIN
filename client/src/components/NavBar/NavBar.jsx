@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import './NavBar.css'
 import SearchBar from "../SearchBar/SearchBar";
+
+
+
 export default function NavBar() {
+
   const location = useLocation();
+
+ 
 
   return (
     <nav className="nav-container">
-      <SearchBar/>
+      <SearchBar />
       {location.pathname !== "/home" && (
         <button className="button-back">
           <NavLink to='/home'>BACK</NavLink>
@@ -21,6 +27,7 @@ export default function NavBar() {
       <button className="button-exit">
         <NavLink to='/'>EXIT</NavLink>
       </button>
+      
     </nav>
   );
 }

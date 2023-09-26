@@ -1,3 +1,9 @@
-export const SET_ALL_POKEMONS = 'SET_ALL_POKEMONS';
-export const SET_ALL_TYPES = 'SET_ALL_TYPES';
+export const GET_ALL_POKEMONS = 'GET_ALL_POKEMONS';
+export const GET_TYPES = 'GET_TYPES'
+export const SET_TYPES = 'SET_TYPES'
 export const GET_NAME_CHARACTERS = 'GET_NAME_CHARACTERS';
+export const SET_FILTER_BY_ORIGIN = 'SET_FILTER_BY_ORIGIN';
+export const SET_FILTER_BY_TYPE = 'SET_FILTER_BY_TYPE';
+export const RESET_FILTER = 'RESET_FILTER';
+export const ORDER_ATTACK = 'ORDER_ATTACK';
+export const ORDER_BY_NAME = 'ORDER_BY_NAME';
