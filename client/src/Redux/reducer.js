@@ -41,7 +41,7 @@ function rootReducer(state=initialState, action){
         case GET_NAME_CHARACTERS:
             return{
                 ...state,
-                allPokemons: action.payload
+                pokemons: action.payload
             }
         case 'POST_POKEMON':
             return {

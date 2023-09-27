@@ -9,23 +9,26 @@ const Card = ({id,name,image,types})=>{
       }
   }
   return (
+    <div className='card'>
+<NavLink to={`/detail/${id}`}> 
       <div className='card-container'>
-          <h2>{name}</h2>
-
-          <NavLink to={`/detail/${id}`}> 
             <img className='pokemon-img' src={image} alt={name}/>
-          </NavLink>
-         <div>
+          <h2 className='card-title'>{name}</h2>
+
+         <h1 className='card-types'>
               {
                   types.map(type=>{
                       return (
-                          <h3>{type}</h3>
-                      )
-                  })
-              }
-         </div>
+                          <li>⚛ {type}</li>
+                          )
+                        })
+                    }
+         </h1>
       
       </div>
+    </NavLink>
+    </div>
+          
   );
 }
 

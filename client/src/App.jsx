@@ -4,11 +4,11 @@ import Landing from './components/Landing/Landing';
 import Home from './components/Home/Home';
 import { useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-
 import Detail from './components/Detail/Detail';
 import {useDispatch, useSelector} from "react-redux";
 import { useEffect } from "react";
 import { getAllPokemons } from "./Redux/actions"; 
+import Form from './components/Form/Form';
 function App() {
   const { pathname } = useLocation();
   const dispatch = useDispatch()
@@ -28,6 +28,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home/>} />
         <Route path='/detail/:id' element={<Detail/>} />
+        <Route path='/form' element={<Form/>}/>
       </Routes>
     </div>
   );

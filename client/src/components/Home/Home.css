@@ -1,3 +1,53 @@
+@font-face {
+    font-family: 'PokemonFont'; /* El nombre que quieras darle a la fuente */
+    src: url('../../assets/PocketMonk-15ze.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+  }
 .home-title{
+    font-family: 'PokemonFont', sans-serif;
+    font-size: 3rem;
+    color: yellow;
+    text-shadow: 
+      -4px -4px 0 blue,
+      4px -4px 0 blue,
+      -4px 4px 0 blue,
+      4px 4px 0 blue;
+      display: flex;
+      justify-content: left;
+      margin-top: -4rem;
+      margin-left: 1rem;
+      
+}
+/* Estilos para los selects con la clase 'orderFilters' */
+.orderFilters {
+  padding: 3px 10px; /* Espaciado interno para el texto */
+  font-size: 16px; /* Tamaño de fuente */
+  border: 1px solid #ccc; /* Borde con color gris claro */
+  border-radius: 7px; /* Bordes redondeados */
+  background-color: #25220e; /* Fondo blanco */
+  color: #ffffff; /* Color de texto */
+  outline: none; /* Elimina el resaltado predeterminado al enfocar */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  margin-left: 20px;
+
+  /* Estilo cuando se enfoca el select */
+  &:focus {
+    border-color: #0b0b0b; /* Borde azul al enfocar */
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5); /* Sombra al enfocar */
+  }
+
+  /* Estilo cuando se pasa el mouse sobre el select */
+  &:hover {
+    background-color: #e6ee07; /* Fondo amarillo al pasar el mouse */
+    color: black;
+  }
+
+  /* Estilo para los options dentro del select */
   
 }
+.option {
+  background-color: #e6ee07; /* Fondo amarillo para options al pasar el mouse */
+  color: black; /* Color de texto para options al pasar el mouse */
+}
+

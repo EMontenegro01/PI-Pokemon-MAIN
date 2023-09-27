@@ -1,0 +1,33 @@
+/* Estilos para la paginación */
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px; /* Ajusta la distancia entre la paginación y el contenido */
+  }
+  
+  .ul {
+    list-style: none;
+    display: flex;
+    gap: 3px; /* Espacio entre los números de página */
+  }
+  
+  .button {
+    background-color: #0532fa; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding-left: 10px;
+    padding-top: 10px;
+    
+    font-size: 1.5rem;
+  }
+  
+  .button:hover {
+    background-color: #f7ff05; /* Color de fondo del botón al pasar el mouse */
+    color: rgb(11, 11, 11);
+  }
+  

@@ -1,8 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
-    background-image: url('./assets/R.png');
+    background-color: yellow;
+    background-image: url('./assets/noche.jpg'); 
+    animation: pokeballsAnimation 15s infinite linear;
     background-size: cover;
     background-attachment:fixed; 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,4 +12,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-    
+  
+/*   @keyframes pokeballsAnimation {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  } */
+  

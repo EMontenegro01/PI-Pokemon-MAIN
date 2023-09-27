@@ -1,0 +1,53 @@
+/* Estilos para el contenedor de búsqueda */
+.searchBox {
+    display: flex;
+    align-items: center;
+    margin-left: 45rem;
+    
+  }
+  
+  /* Estilos para el contenedor del input y el botón */
+  .searchInputContainer {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilos para el input de búsqueda */
+  .searchInput {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: white;
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .searchButton {
+    background-color: transparent;
+    border: none;
+    outline: none;s
+    cursor: pointer;
+
+    color: #050505;
+    transition: color 0.3s;
+  }
+  
+  /* Estilos para el icono de lupa en el botón */
+  .searchButton {
+    font-size: 20px; /* Ajusta este valor según tus preferencias */
+  }
+  /* Efecto de hover para el botón y el input */
+  .searchInputContainer:hover,
+  .searchButton:hover
+   {
+    background-color: #4d4c55;
+    color: #ffffff;
+  }
+  

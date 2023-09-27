@@ -80,17 +80,23 @@ function Home() {
       <h2 className="home-title">HOME</h2>
       <div>
         <select className="orderFilters" onChange={(e) => handleOrderByName(e)}>
-          <option value="Ascendant">A-Z</option>
-          <option value="Descendant">Z-A</option>
+        <option value="" disabled selected>
+            Order by Name
+          </option>
+          <option className="option" value="Ascendant">A-Z</option>
+          <option className="option" value="Descendant">Z-A</option>
         </select>
 
         <select
           className="orderFilters"
           onChange={(e) => handleOrderByAttack(e)}
         >
-          <option value="Default">Default</option>
-          <option value="Attack-ASC">Ascending attack</option>
-          <option value="Attack-DESC">Descending attack</option>
+          <option value="" disabled selected>
+            Order by Attack
+          </option>
+   
+          <option  className="option" value="Attack-ASC">Ascending attack</option>
+          <option className="option" value="Attack-DESC">Descending attack</option>
         </select>
 
         {/* Filtrado por tipo habilitado solo cuando los tipos están cargados */}
@@ -99,11 +105,13 @@ function Home() {
           onChange={handleTypeFilter}
           disabled={!areTypesLoaded} // Deshabilita el filtro hasta que los tipos estén cargados
         >
-          <option value="">Filter by type</option>
-          <option value="All">All</option>
+          <option value="" disabled selected>
+            Filter by type
+          </option>
+          <option className="option" value="All">All</option>
           {allTypes &&
             allTypes.map((tipo) => (
-              <option key={tipo.id} value={tipo.name}>
+              <option className="option" key={tipo.id} value={tipo.name}>
                 {" "}
                 {tipo.name}{" "}
               </option>
@@ -112,9 +120,12 @@ function Home() {
 
         <select className="orderFilters" onChange={(e) => handleFilterOrigin(e)}>
           {/* <option value="">Created by</option> */}
-          <option value="All">All</option>
-          <option value="DataBase">Data Base</option>
-          <option value="Api">Api</option>
+          <option value="" disabled selected>
+            Order by Origin
+          </option>
+          <option className="option" value="All">All</option>
+          <option className="option" value="DataBase">Data Base</option>
+          <option className="option" value="Api">Api</option>
         </select>
       </div>
 

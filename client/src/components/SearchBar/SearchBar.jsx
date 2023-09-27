@@ -2,44 +2,48 @@ import React, { useState } from 'react';
 import './SearchBar.css';
 
 import { getNameCharacters } from '../../Redux/actions';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {useLocation} from 'react-router-dom'
 
 export default function SearchBar() {
-    const dispatch=useDispatch()
 
-    //estado local para guardar la busqueda
-    const [name, setName] = useState('')
+  const location = useLocation()
+  if (location.pathname === '/form') {
+    // No renderizar la barra de búsqueda si la ruta es /form
+    return null;
+  }
+  const dispatch = useDispatch();
 
-    //con esta funcion  seteamos en el name el nombre del input
-    function handleInputChange(e){
-        e.preventDefault()
-        
-        setName(e.target.value)
-        console.log(name)
-      
-    }
+  // Estado local para guardar la búsqueda
+  const [name, setName] = useState('');
 
-     //con esta funcion despachamos la accion getName... con el nombre a buscar 
-     function handleSubmit(e){
-        e.preventDefault()
+  // Con esta función seteamos en el name el nombre del input
+  function handleInputChange(e) {
+    e.preventDefault();
+    setName(e.target.value);
+  }
 
-        console.log("El boton submit funciona !!!" + name)
-        //console.log("El nombre enviado desde el handleSubmit---> " + name)
+  // Con esta función despachamos la acción getName... con el nombre a buscar
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(getNameCharacters(name));
+    setName('');
+  }
 
-        dispatch(getNameCharacters(name))
-        setName('')
-       
-        
-    }
-
-    return (
-        <div className="search-container" >
-            <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleInputChange} value={name} placeholder="Search..."/>
-                <input type="submit" value="Buscar"/>
-            </form>
-
-        </div>
-    )
-
+  return (
+    <form className="searchBox" onSubmit={handleSubmit}>
+      <div className='searchInputContainer'>
+        <input
+          className='searchInput'
+          type="text"
+          onChange={handleInputChange}
+          value={name}
+          placeholder="Search Pokémon"
+        />
+        <button className='searchButton' type="submit" value="Buscar">
+            🔍︎
+        </button>
+      </div>
+    </form>
+  );
 }

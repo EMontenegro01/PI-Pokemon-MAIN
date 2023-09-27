@@ -1,58 +1,70 @@
+@font-face {
+  font-family: 'PokemonFont'; /* El nombre que quieras darle a la fuente */
+  src: url('../../assets/PocketMonk-15ze.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+  font-weight: normal;
+  font-style: normal;
+}
 /* Navbar Container */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333; /* Color de fondo */
     padding: 10px 20px; /* Espaciado interno */
-    color: #fff; /* Color del texto */
   }
   
   /* Botones de la Navbar */
   .button-home,
   .button-back {
-    background-color: #007bff; /* Color de fondo de los botones */
-    color: #fff; /* Color del texto de los botones */
-    border: none; /* Eliminar bordes */
-    padding: 10px 20px; /* Espaciado interno de los botones */
-    margin-right: 10px; /* Espacio entre los botones */
-    text-decoration: none; /* Eliminar subrayado de los enlaces */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    font-family: 'PokemonFont', sans-serif;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffd904;
+    padding: 10px 20px;
+    font-size: 23px;
+    cursor: pointer;
+    color: rgb(1, 1, 1);
+    transition: all 0.2s ease;
+  
   }
   .button-exit{
-    background-color: #ff0000; /* Color de fondo de los botones */
-    color: #fff; /* Color del texto de los botones */
-    border: none; /* Eliminar bordes */
-    padding: 10px 20px; /* Espaciado interno de los botones */
-    margin-right: 10px; /* Espacio entre los botones */
-    text-decoration: none; /* Eliminar subrayado de los enlaces */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima */
-  }
-  
-  /* Espacio para la Barra de Búsqueda */
-  .search-bar {
-    flex-grow: 1; /* Hacer que la barra de búsqueda ocupe todo el espacio disponible */
-    margin: 0 20px; /* Margen a los lados de la barra de búsqueda */
-  }
-  
-  /* Estilos para la Barra de Búsqueda (debes adaptarlos según tu diseño) */
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Estilos para el botón de búsqueda (debes adaptarlos según tu diseño) */
-  .search-button {
-    background-color: #007bff;
-    color: #fff;
+    font-family: 'PokemonFont', sans-serif;
     border: none;
+    border-radius: 10px;
+    background-color: #ff0303;
     padding: 10px 20px;
-    border-radius: 5px;
+    font-size: 23px;
     cursor: pointer;
+    color: rgb(255, 255, 255);
+    transition: all 0.2s ease;
+  }
+  
+  .button-home:hover,
+  .button-back:hover{
+    color: #ffffff;
+    box-shadow: 0 4px 16px #ffffff;
+    background-color: #1c04f3;
+  }
+
+  .button-back a{
+    text-decoration: none;
+    color: inherit; /* Hereda el color del contenedor padre */
+  }
+  .button-home a{
+    text-decoration: none;
+    color: inherit; /* Hereda el color del contenedor padre */
+  }
+  .button-exit a{
+    text-decoration: none;
+    color: inherit; /* Hereda el color del contenedor padre */
+  }
+
+  .button-exit:hover{
+    color: #ffffff;
+    box-shadow: 0 4px 16px #e80707;
+    background-color: #ff0202;
+  }
+  .button-home{
+  
+    margin-right: 5rem;
   }
   

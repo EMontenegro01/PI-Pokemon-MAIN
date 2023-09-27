@@ -1,6 +1,5 @@
 import React from "react";
-import Card from "../Card/Card";
-import Error from "../Error/Error";
+import "./Pagination.css"
 
 const Pagination = ({pokemonsPerPage, allPokemons, pagination}) =>{
     const pageNumbers = [];
@@ -10,12 +9,12 @@ const Pagination = ({pokemonsPerPage, allPokemons, pagination}) =>{
     }
 
     return (
-        <nav>
-          <ul>
+        <nav className="nav">
+          <ul className="ul">
             {pageNumbers &&
               pageNumbers.map((number) => (
                 <ul key={number}>
-                  <button onClick={() => pagination(number)}>{number}</button>
+                  <button  className="button" onClick={() => pagination(number)}>{number}</button>
                 </ul>
               ))}
           </ul>
