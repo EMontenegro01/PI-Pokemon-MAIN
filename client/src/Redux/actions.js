@@ -79,13 +79,6 @@ export const setFilterByType = (types)=>{
   }
 }
 
-export const resetFilter = ()=>{
-  return{
-    type: RESET_FILTER,
-    payload: [],
-  }
-}
-
 export const orderByAttack = (payload)=>{
   return{
     type: ORDER_ATTACK,
@@ -100,15 +93,3 @@ export const orderByName = (payload)=>{
   }
 }
 
-export function postPokemon(payload) {
-  return async function () {
-    try {
-      await axios.post('http://localhost:3001/pokemons', {
-        ...payload,
-      });
-      alert('Succefully created');
-    } catch (error) {
-      alert('Already exist or some trouble during creation! Come back later');
-    }
-  };
-}

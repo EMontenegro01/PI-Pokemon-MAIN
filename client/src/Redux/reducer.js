@@ -24,10 +24,7 @@ function rootReducer(state=initialState, action){
             apiPokemons: apiPokemons, // Opcional: Puedes guardar los Pokémon de la API en un campo separado si es necesario.
             dbPokemons: dbPokemons, // Opcional: Puedes guardar los Pokémon de la base de datos en un campo separado si es necesario.
           };
-      
-
-
-        case SET_TYPES:
+          case SET_TYPES:
             return{
                 ...state,
                 types: action.payload,
@@ -43,22 +40,17 @@ function rootReducer(state=initialState, action){
                 ...state,
                 pokemons: action.payload
             }
-        case 'POST_POKEMON':
+        case SET_FILTER_BY_TYPE:
+               
+            const filteredType = state.allPokemons.filter(poke => poke.types.includes(action.payload));
+            console.log("Action payload:", action.payload);
+            console.log("Filtered Type:", filteredType);
             return {
                 ...state,
+                pokemons: action.payload === 'All' ? state.allPokemons : filteredType
+                
             };
-            case SET_FILTER_BY_TYPE:
-               
-                const filteredType = state.allPokemons.filter(poke => poke.types.includes(action.payload));
-                console.log("Action payload:", action.payload);
-                console.log("Filtered Type:", filteredType);
-                return {
-                    ...state,
-                    pokemons: action.payload === 'All' ? state.allPokemons : filteredType
-        
-
-                };
-                case SET_FILTER_BY_ORIGIN:
+        case SET_FILTER_BY_ORIGIN:
                     let originFilter = [];
                   
                     switch (action.payload) {

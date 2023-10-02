@@ -49,6 +49,7 @@ function Home() {
   // FILTRADO POR TYPE
   const handleTypeFilter = (e) => {
     console.log("Tipo seleccionado:", e.target.value);
+    setCurrentPage(1);
     dispatch(setFilterByType(e.target.value));
   };
 
@@ -56,6 +57,7 @@ function Home() {
   const handleFilterOrigin = (e) => {
     const filterValue = e.target.value;
     console.log("Created in:", filterValue);
+    setCurrentPage(1);
     dispatch(setFilterByOrigin(filterValue));
   };
 

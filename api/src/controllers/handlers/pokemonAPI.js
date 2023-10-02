@@ -18,7 +18,7 @@ const allPokemonsAPI = async()=>{
             });
             pokemons.push(...auxPokemons);
             url = pokemonsApi.next;
-        } while (url!=null && pokemons.length < 40);
+        } while (url!=null && pokemons.length < 48);
         
         let pokesWithData = await Promise.all(pokemons.map(async e=>{
             let pokemon = await axios.get(e.url);

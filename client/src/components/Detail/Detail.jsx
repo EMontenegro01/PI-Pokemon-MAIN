@@ -38,7 +38,7 @@ function Detail(){
         dragon:"rgba(128, 128, 128, 0.932)",
         dark:"#3c3c3c",
         fairy:"#ee82ee",
-        // Agrega más tipos y colores aquí...
+
       };
     return (
         
