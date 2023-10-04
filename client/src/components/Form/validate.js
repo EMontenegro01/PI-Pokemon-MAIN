@@ -17,10 +17,13 @@ const validate = (input) => {
     
 
     // Validación del campo 'hp' (puntos de vida):
-    if (input.hp <= 0) {
+    if(!input.hp){
+      errors.hp = "Cannot be empty"
+    }
+    else if (input.hp <= 0) {
       errors.hp = "Cannot be less than or equal to 0";//"No puede ser menor o igual a 0"; Si el campo 'hp' es menor o igual a 0, se agrega un mensaje de error.
-    } else if (input.hp >= 150){
-      errors.hp =  "Cannot be greater than 150";// "No puede ser mayor a 150";
+    } else if (input.hp > 255){
+      errors.hp =  "Should be less than 255";// "No puede ser mayor a 150";
     }
 
      // Validación del campo 'attack':
@@ -28,8 +31,8 @@ const validate = (input) => {
       errors.attack = "Cannot be empty";//"No puede estar vacío";
     } else if (input.attack <= 0) {
       errors.attack = "Cannot be less than or equal to 0";//"No puede ser menor o igual a 0";
-    } else if (input.attack >= 150){
-      errors.attack = "Should be less than 150"; //"Debe ser menor a 150";
+    } else if (input.attack > 255){
+      errors.attack = "Should be less than 255"; //"Debe ser menor a 150";
     }
 
      // Validación del campo 'defense':
@@ -37,32 +40,53 @@ const validate = (input) => {
       errors.defense = "Cannot be empty";
     } else if (input.defense <= 0) {
       errors.defense = "Cannot be less than or equal to 0";
-    } else if (input.defense >= 150){
-      errors.defense = "Should be less than 150";
+    } else if (input.defense > 255){
+      errors.defense = "Should be less than 255";
     }
 
      // Validación del campo 'speed':
-    if (input.speed < 0) {
-      errors.speed = "Cannot be less than 0";// "No puede ser menor a 0";
+     if(!input.speed){
+      errors.speed = "Cannot be empty";
     }
+    else if (input.speed <= 0) {
+      errors.speed = "Cannot be less than or equal to 0";// "No puede ser menor a 0";
+    }
+    else if(input.speed > 255){
+      errors.speed ="Should be less than 255"
+    }
+
+
      // Validación del campo 'weight':
-    if (input.weight < 0) {
-      errors.weight = "Cannot be less than 0";
+     if(!input.weight){
+       errors.weight = "Cannot be empty";
+     }
+    else if (input.weight <= 0) {
+      errors.weight = "Cannot be less than or equal to 0";
     }
-     // Validación del campo 'height':
-     if (input.height < 0) {
-      errors.height = "Cannot be less than 0";
+    else if(input.speed > 255){
+      errors.speed ="Should be less than 255"
     }
-    
+
+
+    // Validación del campo 'height':
+    if(!input.height){
+     errors.height = "Cannot be empty";
+   }
+   
+    else if (input.height <= 0) {
+      errors.height = "Cannot be less than or equal to 0";
+    }
+    else if(input.speed > 255){
+      errors.speed ="Should be less than 255"
+    }
 
     // Finalmente, se verifica la cantidad de tipos seleccionados en el campo 'types':
-    if (input.types?.length <= 0) {
+    if (!input.types || input.types.length === 0) {
       errors.types = "Select at least 1 type"; //"Debes elegir al menos 1 tipo";  Si no se han seleccionado al menos 1 tipo, se agrega un mensaje de error.
     }
-    
-
+  
     if (!errors.types) errors.types = []; // Si no hay errores en 'types', se inicializa como un array vacío.
-
+  
     return errors; // Retorna el objeto 'errors' que contiene los mensajes de error.
 };
 

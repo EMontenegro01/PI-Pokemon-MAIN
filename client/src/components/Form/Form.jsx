@@ -126,7 +126,7 @@ const Form = () => {
     <div>
       <form onSubmit={handleSubmit} className="formPokemon">
         <h3>Create Pokémon</h3>
-          <label htmlFor="name">Name: *</label>
+          <label className="labels" htmlFor="name">Name: </label>
                 <input type="text" id="name" name="name" required onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.name && 
@@ -135,7 +135,7 @@ const Form = () => {
                   } </span> 
                 }
 
-          <label htmlFor="image">Image URL: * </label>
+          <label className="labels" htmlFor="image">Image URL: </label>
                 <input type="text" id="image" name="image" required onChange={handleInputChange} className="inputForm"/><br /><br />
                 {
                   errors.image && 
@@ -144,7 +144,7 @@ const Form = () => {
                   } </span> 
                 }
 
-          <label htmlFor="hp">HP: *</label>
+          <label className="labels" htmlFor="hp">HP: </label>
                 <input type="number" id="hp" name="hp" required onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.hp && 
@@ -152,7 +152,7 @@ const Form = () => {
                     errors.hp
                   } </span> 
                 }
-          <label htmlFor="attack">Attack: * </label>
+          <label className="labels" htmlFor="attack">Attack:  </label>
                 <input type="number" id="attack" name="attack" required onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.attack && 
@@ -161,7 +161,7 @@ const Form = () => {
                   } </span> 
                 }
 
-          <label htmlFor="defense">Defense: * </label>
+          <label className="labels" htmlFor="defense">Defense: </label>
                 <input type="number" id="defense" name="defense" required onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.defense && 
@@ -170,7 +170,7 @@ const Form = () => {
                   } </span> 
                 }
 
-          <label htmlFor="speed">Speed: </label>
+          <label className="labels" htmlFor="speed">Speed: </label>
                 <input type="number" id="speed" name="speed" onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.speed && 
@@ -179,7 +179,7 @@ const Form = () => {
                   } </span> 
                 }
           
-          <label htmlFor="height">Height: </label>
+          <label className="labels" htmlFor="height">Height: </label>
                 <input type="number" id="height" name="height" onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.height && 
@@ -188,7 +188,7 @@ const Form = () => {
                   } </span> 
                 }
 
-          <label htmlFor="weight">Weight: </label>
+          <label className="labels" htmlFor="weight">Weight: </label>
                 <input type="number" id="weight" name="weight" onChange={handleInputChange} className="inputForm" /><br /><br />
                 {
                   errors.weight && 
@@ -198,7 +198,7 @@ const Form = () => {
                 }
 
                 <label htmlFor="types" className="types">
-                  Type:
+                  Types:
                 </label>
                 <div className="typeCheckboxes">
                   {types.map((tipo) => (
@@ -215,18 +215,15 @@ const Form = () => {
                 </div>
 
           <div>
-            <p>Seleccionado(s): {selectedTypes.join(", ")}</p>
+            <p>Selected: {selectedTypes.join(", ")}</p>
           </div>
 
-     <div>
-      <button 
-                className="btnSubmit"
-                type="submit"
-                name="submit">
+          <div className="btnContainer">
+            <button className="btnSubmit" type="submit" name="submit">
+              CREATE
+            </button>
+          </div>
 
-                  CREATE
-      </button>
-     </div>
 
     </form>
     </div>
