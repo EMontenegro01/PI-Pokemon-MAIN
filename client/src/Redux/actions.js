@@ -1,12 +1,12 @@
 import {GET_ALL_POKEMONS, GET_TYPES, GET_NAME_CHARACTERS, SET_FILTER_BY_ORIGIN, SET_FILTER_BY_TYPE, RESET_FILTER, SET_TYPES, ORDER_ATTACK, ORDER_BY_NAME} from "./action-type";
 import axios from "axios";
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "";
 
 export const getAllPokemons = () => {
     return async (dispatch) => {
       try {
         // Realizar una solicitud GET al endpoint de pokemones
-        const response = await axios.get("http://localhost:3001/pokemons");
+        const response = await axios.get("/pokemons");
   
         // Despachar la acción para almacenar los datos en el estado de Redux
         dispatch({
@@ -38,7 +38,7 @@ export const getAllPokemons = () => {
 export const setTypes=()=>{
   return async (dispatch)=>{
     try {
-      axios.post('http://localhost:3001/types').then((types)=>{
+      axios.post('/types').then((types)=>{
         dispatch({
           type: SET_TYPES,
           payload: types.data,
@@ -55,7 +55,7 @@ export const getNameCharacters=(name)=>{
   console.log("El nombre de la searchbar es .... " + name)
   return async function( dispatch){
       try{
-          const response = await axios.get("http://localhost:3001/pokemons?name=" + name);
+          const response = await axios.get("/pokemons?name=" + name);
           return dispatch({
               type:GET_NAME_CHARACTERS,
               payload: response.data

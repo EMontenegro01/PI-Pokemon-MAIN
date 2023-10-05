@@ -117,7 +117,7 @@ const Form = () => {
     };
   
     try {
-      const response = await axios.post("http://localhost:3001/pokemons", formDataWithTypes);
+      const response = await axios.post("/pokemons", formDataWithTypes);
   
       // Verificar la respuesta del servidor
       if (response.status === 201) {
