@@ -18,11 +18,12 @@ const Form = () => {
     hp: "",
     attack: "",
     defense: "",
-    speed: "",
-    height: "",
-    weight: "",
+    speed: "",     
+    height: "",    
+    weight: "",    
     types: [],
   });
+  
   
   useEffect(()=>{
     dispatch(getAllTypes());
@@ -33,7 +34,7 @@ const Form = () => {
   const [errors, setErrors] = useState({});
 
 
-  const handleTypeChange = (event) => {
+  /* const handleTypeChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
   
     if (selectedOptions.length > 2) {
@@ -55,15 +56,16 @@ const Form = () => {
     );
   
     setSelectedTypes(selectedOptions);
-  };
+  }; */
   
   const handleTypeToggle = (type) => {
     if (selectedTypes.includes(type)) {
-      // Desmarca el tipo si ya está seleccionado
+    
       const updatedTypes = selectedTypes.filter((t) => t !== type);
       setSelectedTypes(updatedTypes);
     } else if (selectedTypes.length < 2) {
-      // Marca el tipo si no está seleccionado y no se han seleccionado 2 tipos aún
+
+      
       const updatedTypes = [...selectedTypes, type];
       setSelectedTypes(updatedTypes);
     }
@@ -81,6 +83,30 @@ const Form = () => {
     // Validar que al menos un tipo esté seleccionado
     if (selectedTypes.length === 0) {
       alert("Selecciona al menos un tipo.");
+      return;
+    }
+    else if(dataForm.hp<0){
+      alert("HP negativo");
+      return;
+    }
+    else if(dataForm.attack<0){
+      alert("attack negativo");
+      return;
+    }
+    else if(dataForm.defense<0){
+      alert("Defense negativo");
+      return;
+    }
+    else if(dataForm.speed<0){
+      alert("Speed negativo");
+      return;
+    }
+    else if(dataForm.height<0){
+      alert("Height negativo");
+      return;
+    }
+    else if(dataForm.weight<0){
+      alert("Weight negativo");
       return;
     }
   
@@ -109,16 +135,22 @@ const Form = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setDataForm({
-      ...dataForm,
-      [name]: value,
-    });
-    
-    setErrors(  
-      validate({
-      ...dataForm,
-      [name]: value,
-    }));
+    try {
+      setDataForm({
+        ...dataForm,
+ 
+        [name]: value,
+      });
+      
+      setErrors(  
+        validate({
+        ...dataForm,
+        [name]: value,
+      }));
+    } catch (error) {
+      alert("Error al crear el Pokémon:", error);
+    }
+   
   };
 
   

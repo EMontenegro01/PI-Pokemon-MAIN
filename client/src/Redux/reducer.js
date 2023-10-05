@@ -6,7 +6,6 @@ const initialState = {
     allPokemons: [],
     allTypes: [],
     types: [],
-    // Nuevos campos para rastrear los Pokémon por origen
     dbPokemons: [],
     apiPokemons: [],
   };
