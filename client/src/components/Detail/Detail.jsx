@@ -7,7 +7,7 @@ function Detail(){
     const {id} = useParams();
     const [pokemon, setPokemon] = useState({})
     useEffect(()=>{
-        axios(`http://localhost:3001/pokemons/${id}`)
+        axios(`https://backend-pi-1pc3.onrender.com/pokemons/${id}`)
         .then(({data})=>{
             if(data.name){
                 setPokemon(data);

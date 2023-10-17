@@ -117,7 +117,7 @@ const Form = () => {
     };
   
     try {
-      const response = await axios.post("/pokemons", formDataWithTypes);
+      const response = await axios.post("https://backend-pi-1pc3.onrender.com/pokemons", formDataWithTypes);
   
       // Verificar la respuesta del servidor
       if (response.status === 201) {

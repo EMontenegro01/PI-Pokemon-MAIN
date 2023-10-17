@@ -6,7 +6,7 @@ export const getAllPokemons = () => {
     return async (dispatch) => {
       try {
         // Realizar una solicitud GET al endpoint de pokemones
-        const response = await axios.get("/pokemons");
+        const response = await axios.get("https://backend-pi-1pc3.onrender.com/pokemons");
   
         // Despachar la acción para almacenar los datos en el estado de Redux
         dispatch({
@@ -23,7 +23,7 @@ export const getAllPokemons = () => {
   export const getAllTypes = ()=>{
     return async (dispatch)=>{
         try{
-            const response = await axios.get("/types");
+            const response = await axios.get("https://backend-pi-1pc3.onrender.com/types");
 
             dispatch({
                 type: GET_TYPES,
@@ -55,7 +55,7 @@ export const getNameCharacters=(name)=>{
   console.log("El nombre de la searchbar es .... " + name)
   return async function( dispatch){
       try{
-          const response = await axios.get("/pokemons?name=" + name);
+          const response = await axios.get("https://backend-pi-1pc3.onrender.com/pokemons?name=" + name);
           return dispatch({
               type:GET_NAME_CHARACTERS,
               payload: response.data
