@@ -23,7 +23,7 @@ export const getAllPokemons = () => {
   export const getAllTypes = ()=>{
     return async (dispatch)=>{
         try{
-            const response = await axios.get(`${BASE_URL}/types`);
+            const response = await axios.get("/types");
 
             dispatch({
                 type: GET_TYPES,
