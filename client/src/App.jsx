@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { getAllPokemons } from "./Redux/actions"; 
 import Form from './components/Form/Form';
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:3001/"
+axios.defaults.baseURL = "https://backend-pi-1pc3.onrender.com"
 function App() {
   const { pathname } = useLocation();
   const dispatch = useDispatch()
