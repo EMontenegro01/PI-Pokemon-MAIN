@@ -10,39 +10,32 @@ import { useEffect } from "react";
 import { getAllPokemons } from "./Redux/actions"; 
 import Form from './components/Form/Form';
 import axios from 'axios';
-import Loading from './components/Loading/Loading';
+
 
 /* axios.defaults.baseURL = "https://backend-pi-1pc3.onrender.com" */
 function App() {
   const { pathname } = useLocation();
   const dispatch = useDispatch()
   const allPokemons = useSelector((state)=>state.allPokemons);
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    dispatch(getAllPokemons())
-      .then(() => setLoading(false));
-  }, [dispatch]);
-  
+  useEffect(()=>{
+      dispatch(getAllPokemons())
+
+
+  },[dispatch]) 
+
   return (
     <div>
       {pathname !== '/' ? <NavBar /> : null}
+     
       <Routes>
         <Route path="/" element={<Landing />} />
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            <Route path="/home" element={<Home />} />
-            <Route path='/detail/:id' element={<Detail />} />
-            <Route path='/form' element={<Form />} />
-          </>
-        )}
+        <Route path="/home" element={<Home/>} />
+        <Route path='/detail/:id' element={<Detail/>} />
+        <Route path='/form' element={<Form/>}/>
       </Routes>
     </div>
   );
-  
 }
 
 export default App;
