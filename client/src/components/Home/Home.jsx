@@ -34,15 +34,24 @@ function Home() {
 
 
   useEffect(() => {
-    dispatch(getAllPokemons());
+    // Cuando la página se carga, establece isLoading en true
+    setIsLoading(true);
 
-    // Obtener los tipos de la API
+    // Realiza la llamada a la API para obtener todos los tipos primero
     dispatch(getAllTypes())
       .then(() => {
-        setAreTypesLoaded(true); // Marcar que los tipos se han cargado
+        // Después de que los tipos se hayan cargado con éxito, realiza la llamada a la API para obtener todos los Pokémon
+        return dispatch(getAllPokemons());
+      })
+      .then(() => {
+        // Cuando ambas llamadas a la API hayan respondido con éxito, establece isLoading en false
+        setIsLoading(false);
+        setAreTypesLoaded(true);
       })
       .catch((error) => {
-        console.error("Error al obtener tipos:", error);
+        // Manejo de errores si alguna de las llamadas a la API falla
+        console.error("Error al cargar los datos:", error);
+        setIsLoading(false); // Asegúrate de establecer isLoading en false incluso en caso de error
       });
   }, [dispatch]);
 
@@ -79,65 +88,69 @@ function Home() {
 
   return (
     <div className="home">
-      <h2 className="home-title">HOME</h2>
-      <div>
-        <select className="orderFilters" onChange={(e) => handleOrderByName(e)}>
-        <option value="" disabled selected>
-            Order by Name
-          </option>
-          <option className="option" value="Ascendant">A-Z</option>
-          <option className="option" value="Descendant">Z-A</option>
-        </select>
-
-        <select
-          className="orderFilters"
-          onChange={(e) => handleOrderByAttack(e)}
-        >
-          <option value="" disabled selected>
-            Order by Attack
-          </option>
-   
-          <option  className="option" value="Attack-ASC">Ascending attack</option>
-          <option className="option" value="Attack-DESC">Descending attack</option>
-        </select>
-
-        {/* Filtrado por tipo habilitado solo cuando los tipos están cargados */}
-        <select
-          className="orderFilters"
-          onChange={handleTypeFilter}
-          disabled={!areTypesLoaded} // Deshabilita el filtro hasta que los tipos estén cargados
-        >
-          <option value="" disabled selected>
-            Filter by type
-          </option>
-          <option className="option" value="All">All</option>
-          {allTypes &&
-            allTypes.map((tipo) => (
-              <option className="option" key={tipo.id} value={tipo.name}>
-                {" "}
-                {tipo.name}{" "}
+      {isLoading ? (
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <>
+          <h2 className="home-title">HOME</h2>
+          <div>
+            <select className="orderFilters" onChange={(e) => handleOrderByName(e)}>
+              <option value="" disabled selected>
+                Order by Name
               </option>
-            ))}
-        </select>
-
-        <select className="orderFilters" onChange={(e) => handleFilterOrigin(e)}>
-          {/* <option value="">Created by</option> */}
-          <option value="" disabled selected>
-            Order by Origin
-          </option>
-          <option className="option" value="All">All</option>
-          <option className="option" value="DataBase">Data Base</option>
-          <option className="option" value="Api">Api</option>
-        </select>
-      </div>
-
-      <Cards currentPokemons={currentPokemons} allTypes={allTypes} />
-<div>
-  <Pagination pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons?.length} pagination={pagination} />
-</div>
-
+              <option className="option" value="Ascendant">A-Z</option>
+              <option className="option" value="Descendant">Z-A</option>
+            </select>
+  
+            <select
+              className="orderFilters"
+              onChange={(e) => handleOrderByAttack(e)}
+            >
+              <option value="" disabled selected>
+                Order by Attack
+              </option>
+  
+              <option className="option" value="Attack-ASC">Ascending attack</option>
+              <option className="option" value="Attack-DESC">Descending attack</option>
+            </select>
+  
+            <select
+              className="orderFilters"
+              onChange={handleTypeFilter}
+              disabled={!areTypesLoaded}
+            >
+              <option value="" disabled selected>
+                Filter by type
+              </option>
+              <option className="option" value="All">All</option>
+              {allTypes &&
+                allTypes.map((tipo) => (
+                  <option className="option" key={tipo.id} value={tipo.name}>
+                    {tipo.name}
+                  </option>
+                ))}
+            </select>
+  
+            <select className="orderFilters" onChange={(e) => handleFilterOrigin(e)}>
+              <option value="" disabled selected>
+                Order by Origin
+              </option>
+              <option className="option" value="All">All</option>
+              <option className="option" value="DataBase">Data Base</option>
+              <option className="option" value="Api">Api</option>
+            </select>
+          </div>
+          <Cards currentPokemons={currentPokemons} allTypes={allTypes} />
+          <div>
+            <Pagination pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons?.length} pagination={pagination} />
+          </div>
+        </>
+      )}
     </div>
   );
+  
 }
 
 export default Home;
