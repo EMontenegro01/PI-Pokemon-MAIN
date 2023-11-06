@@ -16,7 +16,7 @@ const allPokemonsAPI = async () => {
       });
       pokemons.push(...auxPokemons);
       url = pokemonsApi.next;
-    } while (url != null && pokemons.length < 48);
+    } while (url != null && pokemons.length < 1000);
 
     const pokesWithData = await Promise.map(
       pokemons,
