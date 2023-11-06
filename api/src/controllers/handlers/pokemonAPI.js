@@ -1,12 +1,15 @@
 const axios = require('axios');
+const { RateLimit } = require('axios-rate-limit');
 
+const api = axios.create();
+const rateLimitedApi = new RateLimit(api, { maxRequests: 5, perMilliseconds: 1000 });
 const allPokemonsAPI = async()=>{
     try {
         let url = 'https://pokeapi.co/api/v2/pokemon/'
         let pokemons = [];
         do {
            
-            let info = await axios.get(url);
+            let info = await rateLimitedApi.get(url);
             /* console.log(apiRequest.data) */
             let pokemonsApi = info.data
         
@@ -18,7 +21,7 @@ const allPokemonsAPI = async()=>{
             });
             pokemons.push(...auxPokemons);
             url = pokemonsApi.next;
-        } while (url!=null && pokemons.length < 48);
+        } while (url!=null && pokemons.length < 1000);
         
         let pokesWithData = await Promise.all(pokemons.map(async e=>{
             let pokemon = await axios.get(e.url);
