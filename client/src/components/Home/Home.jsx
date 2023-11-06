@@ -19,6 +19,7 @@ function Home() {
   const allPokemons = useSelector((state) => state.pokemons);
   const allTypes = useSelector((state) => state.allTypes);
   const [areTypesLoaded, setAreTypesLoaded] = useState(false); // Nuevo estado
+  const [isLoading, setIsLoading] = useState(true); // Inicializa isLoading en true
 
 
   //**PAGINADO**
