@@ -95,7 +95,7 @@ function Home() {
         </div>
       ) : (
         <>
-          <h2 className="home-title">HOME</h2>
+         
           <div>
             <select className="orderFilters" onChange={(e) => handleOrderByName(e)}>
               <option value="" disabled selected>
