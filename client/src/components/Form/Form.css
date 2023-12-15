@@ -1,27 +1,26 @@
+/* Form.css */
+
 @font-face {
-  font-family: 'PokemonFont'; /* El nombre que quieras darle a la fuente */
-  src: url('../../assets/PocketMonk-15ze.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+  font-family: 'PokemonFont';
+  src: url('../../assets/PocketMonk-15ze.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-
-
-/* Form.css */
+/* Estilos generales */
 .formPokemon {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 30px;
-  box-shadow: 16px 14px 5px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 16px 14px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 16px 14px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 16px 14px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 16px 14px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 16px 14px 5px 0px rgba(0, 0, 0, 0.75);
   font-family: Arial, sans-serif;
   margin-top: -30px;
   margin-bottom: 30px;
   background-color: #eeeee1;
-
 }
 
 .formPokemon h3 {
@@ -30,9 +29,44 @@
   font-size: 30px;
   margin-top: -8px;
   margin-bottom: -10px;
-
 }
 
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .formPokemon {
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .formPokemon h3 {
+    font-size: 24px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+  }
+
+  .inputForm {
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .typeCheckboxes .tipoLabel {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .btnSubmit {
+    padding: 8px 15px;
+    font-size: 18px;
+  }
+
+  .labels,
+  .types {
+    margin-top: 15px;
+  }
+}
+
+/* Estilos originales */
 .inputForm {
   width: 90%;
   padding: 10px;
@@ -47,17 +81,15 @@
 .error {
   color: rgb(241, 12, 12);
   font-size: 14px;
-
 }
 
 .typeCheckboxes {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .tipoLabel {
-  flex-basis: calc(33.33% - 10px); /* Aproximadamente 33% de ancho con espacio entre elementos */
+  flex-basis: calc(33.33% - 10px);
   margin-right: 10px;
   margin-bottom: 10px;
   display: flex;
@@ -67,7 +99,6 @@
 
 .tipoLabel input[type="checkbox"] {
   margin-right: 5px;
- 
 }
 
 .btnContainer {
@@ -84,9 +115,8 @@
   cursor: pointer;
   color: rgb(1, 1, 1);
   transition: all 0.2s ease;
-  margin: 0; /* Quita el margen superior e inferior */
+  margin: 0;
 }
-
 
 .btnSubmit:hover {
   color: #ffffff;
@@ -94,15 +124,14 @@
   background-color: #1c04f3;
 }
 
-.labels{
+.labels {
   display: block;
   margin-bottom: 20px;
   margin-top: 30px;
-  
 }
 
-.types{
+.types {
   display: block;
-  margin-bottom: 15px; /* Separación entre el label y el input */
+  margin-bottom: 15px;
   margin-top: 30px;
 }

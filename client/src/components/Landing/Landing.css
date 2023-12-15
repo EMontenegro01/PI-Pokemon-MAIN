@@ -123,3 +123,49 @@
     }
   }
  
+  
+@media screen and (max-width: 768px) {
+  /* Estilos específicos para pantallas de hasta 768px de ancho */
+  .titulo {
+    font-size: 6rem;
+    margin-top: -3rem;
+  }
+
+  .subtitulo {
+    font-size: 3rem;
+    margin-top: -1rem;
+  }
+
+  .pokeball-container {
+    margin-top: -5rem;
+  }
+
+  .pokeball {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 3rem;
+    margin-top: -8rem;
+  }
+
+  .line {
+    height: 30px;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-width: 5px;
+  }
+
+  .circle-mini {
+    width: 25px;
+    height: 25px;
+    border-width: 2px;
+  }
+
+  .text-pokeball {
+    font-size: 1.5rem;
+    margin-top: -2rem;
+    
+  }
+}

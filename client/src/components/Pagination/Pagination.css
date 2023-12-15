@@ -1,33 +1,53 @@
 /* Estilos para la paginación */
-.nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px; /* Ajusta la distancia entre la paginación y el contenido */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Reduzco la distancia entre la paginación y el contenido */
+}
+
+.page-list {
+  list-style: none;
+  display: flex;
+  gap: 10px; /* Espacio entre los números de página */
+}
+
+.page-button {
+  background-color: #515253; /* Color de fondo del botón */
+  color: #ffffff; /* Color del texto del botón */
+  border: none;
+  border-radius: 50%; /* Hace que el botón sea completamente circular */
+  width: 40px; /* Ancho fijo para todos los botones */
+  height: 40px; /* Altura fija para todos los botones */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  box-shadow: 1px 2px 5px 0px rgba(255,255,255,0.75);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(255,255,255,0.75);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(255,255,255,0.75);
+}
+
+.page-button:hover {
+  background-color: #f1d00f; /* Color de fondo del botón al pasar el mouse */
+  color: black;
+}
+
+/* Estilos adicionales para pantallas pequeñas */
+@media screen and (max-width: 576px) {
+  .pagination {
+    margin-top: 10px; /* Reduzco aún más la distancia en pantallas pequeñas */
   }
-  
-  .ul {
-    list-style: none;
-    display: flex;
-    gap: 3px; /* Espacio entre los números de página */
+
+  .page-list {
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
   }
-  
-  .button {
-    background-color: #0532fa; /* Color de fondo del botón */
-    color: #ffffff; /* Color del texto del botón */
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    padding-left: 10px;
-    padding-top: 10px;
-    
-    font-size: 1.5rem;
+
+  .page-button {
+    font-size: 1rem; /* Mantengo el tamaño de fuente original en pantallas pequeñas */
+    width: 30px; /* Ancho fijo para todos los botones en pantallas pequeñas */
+    height: 30px; /* Altura fija para todos los botones en pantallas pequeñas */
   }
-  
-  .button:hover {
-    background-color: #f7ff05; /* Color de fondo del botón al pasar el mouse */
-    color: rgb(11, 11, 11);
-  }
-  
+}

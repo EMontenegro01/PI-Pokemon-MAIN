@@ -1,70 +1,107 @@
-@font-face {
-  font-family: 'PokemonFont'; /* El nombre que quieras darle a la fuente */
-  src: url('../../assets/PocketMonk-15ze.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
-  font-weight: normal;
-  font-style: normal;
-}
 /* Navbar Container */
 .nav-container {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Espaciado interno */
+}
+
+/* Botones de la Navbar */
+.button-home,
+.button-back,
+.button-exit {
+  font-family: 'PokemonFont', sans-serif;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffd904;
+  padding: 10px 20px;
+  font-size: 23px;
+  cursor: pointer;
+  color: rgb(1, 1, 1);
+  transition: all 0.2s ease;
+}
+
+.button-exit {
+  background-color: #ff0303;
+  color: rgb(255, 255, 255);
+}
+
+.button-home:hover,
+.button-back:hover {
+  color: #ffffff;
+  box-shadow: 0 4px 16px #ffffff;
+  background-color: #1c04f3;
+}
+
+.button-exit:hover {
+  color: #ffffff;
+  box-shadow: 0 4px 16px #e80707;
+  background-color: #ff0202;
+}
+
+.button-back a,
+.button-home a,
+.button-exit a {
+  text-decoration: none;
+  color: inherit; /* Hereda el color del contenedor padre */
+}
+
+.button-home {
+  margin-right: 5rem;
+}
+
+/* Media Query para pantallas pequeñas y medianas */
+@media screen and (max-width: 992px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-home,
+  .button-back,
+  .button-exit {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .button-home {
+    margin-right: 0;
+  }
+}
+
+/* Media Query para pantallas grandes y extra grandes */
+@media screen and (min-width: 993px) {
+  .nav-container {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Espaciado interno */
   }
-  
-  /* Botones de la Navbar */
+
+  .button-home {
+    margin-right: 2rem; /* Ajusta el margen derecho según tus preferencias */
+  }
+
   .button-home,
-  .button-back {
-    font-family: 'PokemonFont', sans-serif;
-    border: none;
-    border-radius: 10px;
-    background-color: #ffd904;
-    padding: 10px 20px;
-    font-size: 23px;
-    cursor: pointer;
-    color: rgb(1, 1, 1);
-    transition: all 0.2s ease;
-  
-  }
-  .button-exit{
-    font-family: 'PokemonFont', sans-serif;
-    border: none;
-    border-radius: 10px;
-    background-color: #ff0303;
-    padding: 10px 20px;
-    font-size: 23px;
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    transition: all 0.2s ease;
-  }
-  
-  .button-home:hover,
-  .button-back:hover{
-    color: #ffffff;
-    box-shadow: 0 4px 16px #ffffff;
-    background-color: #1c04f3;
+  .button-back,
+  .button-exit {
+    width: auto;
+    margin: 0.5rem; /* Espacio uniforme entre los botones */
   }
 
-  .button-back a{
-    text-decoration: none;
-    color: inherit; /* Hereda el color del contenedor padre */
-  }
-  .button-home a{
-    text-decoration: none;
-    color: inherit; /* Hereda el color del contenedor padre */
-  }
-  .button-exit a{
-    text-decoration: none;
-    color: inherit; /* Hereda el color del contenedor padre */
+  .button-exit {
+    margin-left: -1px;
   }
 
-  .button-exit:hover{
-    color: #ffffff;
-    box-shadow: 0 4px 16px #e80707;
-    background-color: #ff0202;
+  /* Ajuste de tamaño para pantallas medianas */
+  @media screen and (min-width: 993px) and (max-width: 1200px) {
+    .button-home,
+    .button-back {
+      font-size: 12px;
+    }
+
+    .button-home {
+      margin-right: 1rem; /* Ajusta el margen derecho según tus preferencias */
+    }
   }
-  .button-home{
-  
-    margin-right: 5rem;
-  }
-  
+}
+
