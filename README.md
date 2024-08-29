@@ -94,7 +94,7 @@ Y muchas funcionalidades más!
 ## **📌 LINK DEL DEPLOY**
 
 
-link: https://pi-pokemon-main-chi.vercel.app/home
+link: https://pi-pokemon-main-chi.vercel.app/
 
 
 
